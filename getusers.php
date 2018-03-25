@@ -10,11 +10,7 @@ $result = pg_query($query) or die('Query failed: ' . pg_last_error());
 // Printing results in HTML
 $data = array();
 while ($row = pg_fetch_assoc($result)) {
-                 array_push($data, array('id' => $row['id']));
-                 array_push($data, array('username' => $row['username']));
-                 array_push($data, array('name' => $row['name']));
-                 array_push($data, array('password' => $row['password']));
-                 array_push($data, array('email' => $row['email']));
+      array_push($data, array('id' => $row['id']),'username' => $row['username'],'name' => $row['name'],'password' => $row['password'],'email' => $row['email']);
 }
     $json = json_encode($data);
     echo $json;
