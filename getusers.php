@@ -11,8 +11,10 @@ $result = pg_query($query) or die('Query failed: ' . pg_last_error());
 echo "<table>\n";
 while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
     echo "\t\t<tr>\n";
+    $i = 0;
     foreach ($line as $col_value) {
-        echo "\t\t\t\t<td>$line $col_value</td>\n";
+        echo "\t\t\t\t<td>$line[$i] $col_value</td>\n";
+        $i++;
     }
     echo "\t\t</tr>\n";
 }
