@@ -9,7 +9,7 @@ $result = pg_query($query) or die('Query failed: ' . pg_last_error());
 
 // Printing results in HTML=
  $coursesArray = array();
-	while ($row = pg_fetch_array($result, null, PGSQL_ASSOC)) {
+	while ($row = pg_fetch_array($result)) {
 		coursesArray[] = $row;
 	}
 	echo json_encode($coursesArray);
