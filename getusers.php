@@ -17,11 +17,19 @@ while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
     echo "\t</tr>\n";
 }
 echo "</table>\n";
+echo "\n";
+
+$rows = array();
+while($r = mysql_fetch_assoc($result)) {
+  $rows[] = $r;
+}
+
+echo json_encode($rows);
 
 // Free resultset
 pg_free_result($result);
 
 // Closing connection
 pg_close($dbconn); 
-echo json_encode($result, JSON_PRETTY_PRINT);
+
 ?>
