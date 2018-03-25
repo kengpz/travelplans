@@ -4,6 +4,6 @@
 </head>
 <body>
 <p>Index travelplans</p></br>
-  <a href="www.facebook.com">Click here</a>
+  <a href="www.facebook.com">facebook</a>
 </body>
 </html>
