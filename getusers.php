@@ -17,14 +17,6 @@ while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
     echo "\t</tr>\n";
 }
 echo "</table>\n";
-echo "\n";
-
-$rows = array();
-while($r = pg_fetch_array($result, null, PGSQL_ASSOC)) {
-  $rows[] = $r;
-  echo json_encode($rows);
-}
-
 
 // Free resultset
 pg_free_result($result);
