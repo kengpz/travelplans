@@ -7,25 +7,17 @@
 $query = 'SELECT * FROM users';
 $result = pg_query($query) or die('Query failed: ' . pg_last_error());
 
-// Printing results in HTML=
-echo "<table>\n";
-while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
-    echo "\t\t<tr>\n";
-    $i = 0;
-    foreach ($line as $col_value) {
-        echo "\t\t\t\t<td>$col_value</td>\n";
-        $i++;
-    }
-    echo "\t\t</tr>\n";
-}
-echo "</table>\n";
+// Printing results in HTML
+$data = array();
 while ($row = pg_fetch_assoc($result)) {
-  echo $row['id'];
-  echo $row['name'];
-  echo $row['username'];
-  echo $row['password'];
-  echo $row['email'];
+                 array_push($data, array('id' => $row['id']));
+                 array_push($data, array('username' => $row['username']));
+                 array_push($data, array('name' => $row['name']));
+                 array_push($data, array('password' => $row['password']));
+                 array_push($data, array('email' => $row['email']));
 }
+    $json = json_encode($data);
+    echo $json;
 // Free resultset
 pg_free_result($result);
 
