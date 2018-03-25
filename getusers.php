@@ -21,11 +21,11 @@ while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
 echo "</table>\n";
 $data =array();
 while($row = pg_fetch_array($result)) {
-                 array_push($data, array('id' => $row['id']));
                  array_push($data, array('username' => $row['username']));
+                 /* array_push($data, array('id' => $row['id']));
                  array_push($data, array('name' => $row['name']));
                  array_push($data, array('password' => $row['password']));
-                 array_push($data, array('email' => $row['email']));
+                 array_push($data, array('email' => $row['email'])); */
 }
     $json = json_encode($data);
     echo $json;
