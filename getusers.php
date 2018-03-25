@@ -13,7 +13,7 @@ while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
     echo "\t\t<tr>\n";
     $i = 0;
     foreach ($line as $col_value) {
-        echo "\t\t\t\t<td>$i . $col_value</td>\n";
+        echo "\t\t\t\t<td>$col_value</td>\n";
         $i++;
     }
     echo "\t\t</tr>\n";
