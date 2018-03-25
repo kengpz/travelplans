@@ -19,6 +19,10 @@ while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
     echo "\t\t</tr>\n";
 }
 echo "</table>\n";
+
+
+$obj = json_decode($result, false);
+echo $obj;
 // Free resultset
 pg_free_result($result);
 
