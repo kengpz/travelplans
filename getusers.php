@@ -23,5 +23,5 @@ pg_free_result($result);
 
 // Closing connection
 pg_close($dbconn); 
-
+echo json_encode($result, JSON_PRETTY_PRINT);
 ?>
