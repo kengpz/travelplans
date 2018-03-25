@@ -20,7 +20,7 @@ echo "</table>\n";
 echo "\n";
 
 $rows = array();
-while($r = mysql_fetch_assoc($result)) {
+while($r = pg_fetch_array($result, null, PGSQL_ASSOC)) {
   $rows[] = $r;
 }
 
