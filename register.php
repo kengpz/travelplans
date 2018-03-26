@@ -4,14 +4,14 @@ header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
 require("connectionDB.php");
 $encoding = pg_client_encoding($dbconn);
-echo "Client encoding is: ", $encoding. "\n";
-pg_set_client_encoding($conn, "UTF8");
-echo "Client encoding is: ", $encoding."\n";
+echo "Client encoding is: ", $encoding. "</br>";
+pg_set_client_encoding($dbconn, "UTF8");
+echo "Client encoding is: ", $encoding. "</br>";
 if ($_POST) {
     // check action
 	$action = $_POST['action'];
 	if(strcmp($action, 'register') == 0){
-		echo "action = ", $_POST['action']. "\n";
+		echo "action = ", $_POST['action']. "</br>";
 
 		// get post body content
 		$content = file_get_contents('php://input');
@@ -34,16 +34,16 @@ if ($_POST) {
 		}
 		
 		//insert data
-		$sql    = "INSERT INTO USERS (USERNAME,NAME,PASSWORD,EMAIL) VALUES ($username,$name,$password,$email);";
+		$sql    = "INSERT INTO USERS (USERNAME,NAME,PASSWORD,EMAIL) VALUES ('$username','$name','$password','$email');";
 		$result = pg_query($dbconn, $sql);
 		
 		if ($result) {
 		echo json_encode(['status' => 'ok','message' => 'Insert data success']);
 		} else {
-		echo json_encode(['status' => 'error','message' => 'Exception! $rowcount $email']);
+		echo json_encode(['status' => 'error','message' => "Exception! '$rowcount' '$email'"]);
 		}
 	}
-	echo "\n200";
+	echo "</br>200";
 }
 pg_close($dbconn);
 ?>
