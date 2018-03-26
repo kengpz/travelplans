@@ -36,7 +36,7 @@ if ($_POST) {
 		if ($result) {
 		echo json_encode(['status' => 'ok','message' => "Insert data success."]);
 		} else {
-		echo json_encode(['status' => 'error','message' => "Can't insert data!"]);
+		echo json_encode(['status' => 'error','message' => "Insert data error!"]);
 		}
 	}
 }
