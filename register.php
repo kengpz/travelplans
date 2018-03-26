@@ -11,14 +11,14 @@ if ($_POST) {
     // check action
 	$action = $_POST['action'];
 	if(strcmp($action, 'register') == 0){
-		echo "action = " .$_POST['action'];
-		echo "\n\n";
+		echo "action = ", $_POST['action'], "\n";
+
 		// get post body content
 		$content = file_get_contents('php://input');
 		
 		// parse JSON
 		$users = json_decode($content, true);
-		echo $users ."\n";
+
 		$username = $users['email'];
 		$name = $users['name'];
 		$password = $users['password'];
@@ -29,7 +29,7 @@ if ($_POST) {
 		$rearch_result  = pg_query($dbconn, $sql_search);
 		$rowcount = pg_num_rows($rearch_result);
 		if ($rowcount == 1) {
-		echo json_encode(['status' => 'error','message' => 'ไม่สามารถลงทะเบียนได้ อีเมลนี้มีผู้ใช้แล้ว']);
+		echo json_encode(['status' => 'error','message' => 'Duplicate email! $']);
 		exit;
 		}
 		
@@ -38,9 +38,9 @@ if ($_POST) {
 		$result = pg_query($dbconn, $sql);
 		
 		if ($result) {
-		echo json_encode(['status' => 'ok','message' => 'บันทึกข้อมูล เรียบร้อย']);
+		echo json_encode(['status' => 'ok','message' => 'Insert data success']);
 		} else {
-		echo json_encode(['status' => 'error','message' => 'เกิดข้อผิดพลาดในการบนัทกึข้อมลู ']);
+		echo json_encode(['status' => 'error','message' => 'Exception!']);
 		}
 	}
 	echo "\n200";
