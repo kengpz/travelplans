@@ -34,7 +34,7 @@ if ($_POST) {
 		}
 		
 		//insert data
-		$sql    = "INSERT INTO USERS (USERNAME,NAME,PASSWORD,EMAIL) VALUES ($username,$name,$password,$email);";
+		$sql    = "INSERT INTO USERS (USERNAME,NAME,PASSWORD,EMAIL) VALUES ('$username','$name','$password','$email');";
 		$result = pg_query($dbconn, $sql);
 		
 		if ($result) {
