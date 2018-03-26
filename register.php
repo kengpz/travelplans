@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$rearch_result  = pg_query($dbconn, $sql_search);
 		$rowcount = pg_num_rows($rearch_result);
 		if ($rowcount == 1) {
-		echo json_encode(['status' => 'error','message' => "Duplicate email! : '$email'"]);
+		echo json_encode(['status' => 'error','message' => "ไม่สามารถลงทะเบียนได้ อีเมลนี้มีผู้ใช้แล้ว"]);
 		exit;
 		}
 		
@@ -35,9 +35,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$result = pg_query($dbconn, $sql);
 		
 		if ($result) {
-		echo json_encode(['status' => 'ok','message' => "Insert data success."]);
+		echo json_encode(['status' => 'ok','message' => "บันทึกข้อมูลเรียบร้อย"]);
 		} else {
-		echo json_encode(['status' => 'error','message' => "Insert data error!"]);
+		echo json_encode(['status' => 'error','message' => "เกิดข้อผิดพลาดในการบันทึกข้อมูล"]);
 		}
 	//}
 }
