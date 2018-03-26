@@ -14,15 +14,15 @@ if ($_POST) {
 		echo "action = ", $_POST['action']. "</br>";
 
 		// get post body content
-		$content = file_get_contents('php://input');
+		//$content = file_get_contents('php://input');
 		
 		// parse JSON
-		$users = json_decode($content, true);
+		//$users = json_decode($content, true);
 
-		$username = $users['email'];
-		$name = $users['name'];
-		$password = $users['password'];
-		$email    = $users['email'];
+		$username = $_POST['email'];
+		$name = $_POST['name'];
+		$password = $_POST['password'];
+		$email    = $_POST['email'];
 		
 		//check duplicate $email
 		$sql_search     = "SELECT email FROM users WHERE email = '$email';";
@@ -34,11 +34,11 @@ if ($_POST) {
 		}
 		
 		//insert data
-		$sql    = "INSERT INTO USERS (USERNAME,NAME,PASSWORD,EMAIL) VALUES ('$username','$name','$password','$email');";
+		$sql    = "INSERT INTO USERS (USERNAME,NAME,PASSWORD,EMAIL) VALUES ($username,$name,$password,$email);";
 		$result = pg_query($dbconn, $sql);
 		
 		if ($result) {
-		echo json_encode(['status' => 'ok','message' => 'Insert data success']);
+		echo json_encode(['status' => 'ok','message' => $sql]);
 		} else {
 		echo json_encode(['status' => 'error','message' => "Exception! '$rowcount' '$email'"]);
 		}
