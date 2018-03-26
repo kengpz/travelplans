@@ -29,7 +29,7 @@ if ($_POST) {
 		$rearch_result  = pg_query($dbconn, $sql_search);
 		$rowcount = pg_num_rows($rearch_result);
 		if ($rowcount == 1) {
-		echo json_encode(['status' => 'error','message' => 'Duplicate email! $email']);
+		echo json_encode(['status' => 'error','message' => 'Duplicate email! : '$email'']);
 		exit;
 		}
 		
@@ -40,7 +40,7 @@ if ($_POST) {
 		if ($result) {
 		echo json_encode(['status' => 'ok','message' => $sql]);
 		} else {
-		echo json_encode(['status' => 'error','message' => "Exception! '$rowcount' '$email'"]);
+		echo json_encode(['status' => 'error','message' => "Exception! '$rowcount' '$email' '$sql'"]);
 		}
 	}
 	echo "</br>200";
