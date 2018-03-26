@@ -3,7 +3,10 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
 require("connectionDB.php");
-
+$encoding = pg_client_encoding($dbconn);
+echo "Client encoding is: ", $encoding, "\n";
+pg_set_client_encoding($conn, "UTF8");
+echo "Client encoding is: ", $encoding, "\n";
 if ($_POST) {
     // check action
 	$action = $_POST['action'];
@@ -11,15 +14,15 @@ if ($_POST) {
 		echo "action = " .$_POST['action'];
 		echo "\n";
 		// get post body content
-		// $content = file_get_contents('php://input');
+		$content = file_get_contents('php://input');
 		
 		// parse JSON
-		 //$users = json_decode($content, true);
+		$users = json_decode($content, true);
 		
-		$username = $_POST['email'];
-		$name = $_POST['name'];
-		$password = $_POST['password'];
-		$email    = $_POST['email'];
+		$username = $users['email'];
+		$name = $users['name'];
+		$password = $users['password'];
+		$email    = $users['email'];
 		
 		//check duplicate $email
 		$sql_search     = "SELECT email FROM users WHERE email = '$email' ";
