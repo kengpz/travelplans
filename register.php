@@ -38,7 +38,8 @@ if ($_POST) {
 		echo json_encode(['status' => 'error','message' => 'เกิดข้อผิดพลาดในการบนัทกึข้อมลู ']);
 		}
 	}
+	echo $$action;
+	echo "\n200";
 }
 pg_close($dbconn);
-echo "\n200";
 ?>
