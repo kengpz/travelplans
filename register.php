@@ -4,26 +4,22 @@ header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
 require("connectionDB.php");
 
-echo $_POST['action'];
-echo $_POST['username'];
-echo $_POST['name'];
-echo $_POST['password'];
-echo $_POST['email'];
-
 if ($_POST) {
     // check action
 	$action = $_POST['action'];
 	if(strcmp(action, 'register') == 0){
+		echo "action = " .$_POST['action'];
+		echo "\n";
 		// get post body content
-		$content = file_get_contents('php://input');
+		// $content = file_get_contents('php://input');
 		
 		// parse JSON
-		$users = json_decode($content, true);
+		 //$users = json_decode($content, true);
 		
-		$username = $users['username'];
-		$name = $users['name'];
-		$password = $users['password'];
-		$email    = $users['email'];
+		$username = $_POST['email'];
+		$name = $_POST['name'];
+		$password = $_POST['password'];
+		$email    = $_POST['email'];
 		
 		//check duplicate $email
 		$sql_search     = "SELECT email FROM users WHERE email = '$email' ";
@@ -44,7 +40,6 @@ if ($_POST) {
 		echo json_encode(['status' => 'error','message' => 'เกิดข้อผิดพลาดในการบนัทกึข้อมลู ']);
 		}
 	}
-	echo $action;
 	echo "\n200";
 }
 pg_close($dbconn);
