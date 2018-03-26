@@ -5,7 +5,8 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
 require("connectionDB.php");
 pg_set_client_encoding($dbconn, "UTF8");
 
-if ($_POST) {
+//if ($_POST) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // check action
 	//$action = $_POST['action'];
 	//if(strcmp($action, 'register') == 0){
