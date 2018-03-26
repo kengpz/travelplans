@@ -7,18 +7,18 @@ pg_set_client_encoding($dbconn, "UTF8");
 
 if ($_POST) {
     // check action
-	$action = $_POST['action'];
-	if(strcmp($action, 'register') == 0){
+	//$action = $_POST['action'];
+	//if(strcmp($action, 'register') == 0){
 		// get post body content
-		//$content = file_get_contents('php://input');
+		$content = file_get_contents('php://input');
 		
 		// parse JSON
-		//$users = json_decode($content, true);
+		$users = json_decode($content, true);
 
-		$username = $_POST['$username'];
-		$name = $_POST['name'];
-		$password = $_POST['password'];
-		$email    = $_POST['email'];
+		$username = $users['$username'];
+		$name = $users['name'];
+		$password = $users['password'];
+		$email    = $users['email'];
 		
 		//check duplicate $email
 		$sql_search     = "SELECT email FROM users WHERE email = '$email';";
@@ -38,7 +38,7 @@ if ($_POST) {
 		} else {
 		echo json_encode(['status' => 'error','message' => "Insert data error!"]);
 		}
-	}
+	//}
 }
 pg_close($dbconn);
 ?>
