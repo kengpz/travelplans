@@ -16,10 +16,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		// parse JSON
 		$users = json_decode($content, true);
 
-		$username = $users[0]['$username'];
-		$name = $users[0]['name'];
-		$password = $users[0]['password'];
-		$email    = $users[0]['email'];
+		$username = $users['$username'];
+		$name = $users['name'];
+		$password = $users['password'];
+		$email    = $users['email'];
 		
 		//check duplicate $email
 		$sql_search     = "SELECT email FROM users WHERE email = '$email';";
@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		if ($result) {
 		echo json_encode(['status' => 'ok','message' => "บันทึกข้อมูลเรียบร้อย"]);
 		} else {
-		echo json_encode(['status' => 'error','message' => "เกิดข้อผิดพลาดในการบันทึกข้อมูล"]);
+		echo json_encode(['status' => 'error','message' => "เกิดข้อผิดพลาดในการบันทึกข้อมูล"], JSON_FORCE_OBJECT);
 		}
 	//}
 }
