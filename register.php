@@ -12,13 +12,13 @@ if ($_POST) {
 	$action = $_POST['action'];
 	if(strcmp($action, 'register') == 0){
 		echo "action = " .$_POST['action'];
-		echo "\n";
+		echo "\n\n";
 		// get post body content
 		$content = file_get_contents('php://input');
 		
 		// parse JSON
 		$users = json_decode($content, true);
-		
+		echo $users ."\n";
 		$username = $users['email'];
 		$name = $users['name'];
 		$password = $users['password'];
