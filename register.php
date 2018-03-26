@@ -16,10 +16,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		// parse JSON
 		$users = json_decode($content, true);
 
-		$username = $users['$username'];
-		$name = $users['name'];
-		$password = $users['password'];
-		$email    = $users['email'];
+		$username = $users[0]['$username'];
+		$name = $users[0]['name'];
+		$password = $users[0]['password'];
+		$email    = $users[0]['email'];
 		
 		//check duplicate $email
 		$sql_search     = "SELECT email FROM users WHERE email = '$email';";
