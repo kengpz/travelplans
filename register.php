@@ -4,6 +4,12 @@ header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
 require("connectionDB.php");
 
+echo $_POST['action'];
+echo $_POST['username'];
+echo $_POST['name'];
+echo $_POST['password'];
+echo $_POST['email'];
+
 if ($_POST) {
     // check action
 	$action = $_POST['action'];
@@ -38,7 +44,7 @@ if ($_POST) {
 		echo json_encode(['status' => 'error','message' => 'เกิดข้อผิดพลาดในการบนัทกึข้อมลู ']);
 		}
 	}
-	echo $$action;
+	echo $action;
 	echo "\n200";
 }
 pg_close($dbconn);
