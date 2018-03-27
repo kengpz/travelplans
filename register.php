@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$email    = $users['email'];
 		
 		// check action
-		if(strcmp($action, 'register') == 0){
+	//if(strcmp($action, 'register') == 0){
 			//check duplicate $email
 			$sql_search     = "SELECT email FROM users WHERE email = '$email';";
 			$rearch_result  = pg_query($dbconn, $sql_search);
@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			} else {
 				echo json_encode(['status' => 'error','message' => "เกิดข้อผิดพลาดในการบันทึกข้อมูล"], JSON_FORCE_OBJECT);
 			}
-		}
+		//}
 }
 pg_close($dbconn);
 ?>
