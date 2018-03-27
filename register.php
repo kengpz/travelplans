@@ -7,10 +7,8 @@ require("connectionDB.php");
 pg_set_client_encoding($dbconn, "UTF8");
 
 //if ($_POST) {
-	echo json_encode(['status' => 'prefect','message' => "cool"], JSON_FORCE_OBJECT);
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	
-	echo json_encode(['status' => 'method','message' => "post"], JSON_FORCE_OBJECT);
     // check action
 	//$action = $_POST['action'];
 	//if(strcmp($action, 'register') == 0){
@@ -19,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		
 		// parse JSON
 		$users = json_decode($content, true);
-	
+		echo json_encode($users, JSON_FORCE_OBJECT);
 		$action = $users['action'];
 		$username = $users['$username'];
 		$name = $users['name'];
