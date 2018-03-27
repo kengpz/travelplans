@@ -6,8 +6,8 @@ header('Content-Type: application/json');
 require("connectionDB.php");
 pg_set_client_encoding($dbconn, "UTF8");
 
-//if ($_POST) {
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_POST) {
+//if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // check action
 	//$action = $_POST['action'];
 	//if(strcmp($action, 'register') == 0){
