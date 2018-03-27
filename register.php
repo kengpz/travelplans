@@ -17,9 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		
 		// parse JSON
 		$users = json_decode($content, true);
-		echo json_encode($users, JSON_FORCE_OBJECT);
-		$action = $users['action'];
-		$username = $users['$username'];
+
+		$username = $users['username'];
 		$name = $users['name'];
 		$password = $users['password'];
 		$email    = $users['email'];
