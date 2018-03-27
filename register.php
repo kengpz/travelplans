@@ -7,6 +7,7 @@ require("connectionDB.php");
 pg_set_client_encoding($dbconn, "UTF8");
 
 if ($_POST) {
+	echo json_encode(['status' => 'prefect','message' => "cool"], JSON_FORCE_OBJECT);
 //if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // check action
 	//$action = $_POST['action'];
