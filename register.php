@@ -2,7 +2,7 @@
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
-header('Content-Type: text/html');
+header('Content-Type: application/json');
 require("connectionDB.php");
 pg_set_client_encoding($dbconn, "UTF8");
 
