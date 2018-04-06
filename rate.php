@@ -12,6 +12,6 @@
 </head>
 
 <body>
-	<iframe id="iframeid" src="https://www.xn--o3cea3afbwl1da3wf0i.com/poll/open18_muay.php" frameborder="0" style="max-width:100%;height:auto;"></iframe>
+	<iframe id="iframeid" src="https://www.xn--o3cea3afbwl1da3wf0i.com/poll/open18_muay.php" frameborder="0" style="width:100%;height:610px;"></iframe>
 </body>
 </html>
