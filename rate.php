@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html name="viewport" content="width=device-width, initial-scale=1.0"; charset=utf-8"  />
 	<title>Rate muay</title>
 	<script type="text/javascript">
-	setInterval(reload, 15000);
+	setInterval(reload, 8000);
 	function reload() {
 		document.getElementById('iframeid').src += '';
 	}
