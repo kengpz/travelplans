@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html name="viewport" content="width=device-width, initial-scale=1.0"; charset=utf-8"  />
-	<title>Rate muay</title>
+	<title>เรตมวยจาก www.มวยไทยออนไลน์.com</title>
 	<script type="text/javascript">
 	setInterval(reload, 8000);
 	function reload() {
@@ -12,6 +12,6 @@
 </head>
 
 <body>
-	<iframe id="iframeid" src="https://www.xn--o3cea3afbwl1da3wf0i.com/poll/open18_muay.php" frameborder="0" style="width:718px;height:500px;"></iframe>
+	<iframe id="iframeid" src="https://www.xn--o3cea3afbwl1da3wf0i.com/poll/open18_muay.php" frameborder="0" style="max-width:100%;height:auto;"></iframe>
 </body>
 </html>
